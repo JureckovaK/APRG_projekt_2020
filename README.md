@@ -1,1 +1,4 @@
 # APRG_projekt_2020
+To run main.py, dictionary.txt and a .txt file are needed.
+
+After opening main.py the user is asked whether he wants to use original dictionary.txt file (approximately 194,000 english words) or his own customized dictionary_user.txt. If dictionary_user.txt is not already created or is not available, the script is forced to use dictionary.txt. Then scipt creates a file dictionary_with_keys.json. Afterwards is user asked if he wants to perform check automatically or interactively. If there is noticed a change in the activelly used database of words during the check, the user is asked after the check is completed if he wants to save the changes permanently into the new file (if not already created otherwise it will be overwritten) dictionary_user.txt. The output of the script main.py is .txt file checked_text.txt.

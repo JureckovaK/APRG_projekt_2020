@@ -193,6 +193,7 @@ def get_list_indexes(word):
         for item in range(0, len(ALPHABET)):
             if ALPHABET[item] == letter:
                 word_indexes_list.append(item)
+                break
 
     return word_indexes_list
 
@@ -226,9 +227,14 @@ def narrowing_search(same_letter_words, top_index, bottom_index, original_word, 
             result = narrowing_search(same_letter_words, top_index, bottom_index, original_word, index, control)
             return result
 
-        if (index > len(original_word) - 1) or (index > len(checked_word) - 1):
-            same_letter_words.remove(dict_word)
-            top_index = top_index - 1
+        if index > len(original_word) - 1:
+            top_index = half - 1
+            index -= 1
+            result = narrowing_search(same_letter_words, top_index, bottom_index, original_word, index, control)
+            return result
+
+        elif index > len(checked_word) - 1:
+            bottom_index = half + 1
             result = narrowing_search(same_letter_words, top_index, bottom_index, original_word, index, control)
             return result
 
